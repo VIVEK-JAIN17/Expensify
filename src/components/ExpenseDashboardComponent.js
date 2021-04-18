@@ -1,7 +1,13 @@
 import React from 'react';
+import ExpenseList from './ExpenseList';
+import ExpenseListFilters from './ExpenseListFilters';
 
-const ExpenseDashboard = () => (
-    <div>This is from Expense Dashboard component.</div>
+const ExpenseDashboard = (props) => (
+    <div>
+        <ExpenseListFilters />
+        <ExpenseList />
+    </div>
 );
 
+// export default connect(mapStateToProps)(ExpenseDashboard);
 export default ExpenseDashboard;

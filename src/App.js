@@ -1,3 +1,4 @@
+import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './redux/store/configureStore';
 import { addExpense } from './redux/actions/expenses';
@@ -13,13 +14,19 @@ store.subscribe(() => {
 });
 
 store.dispatch(addExpense({ amount: 10000, createdAt: 1000, description: 'Water Bill' }));
-store.dispatch(addExpense({ amount: 22000, createdAt: 10000, description: 'Gas Bill' }));
+store.dispatch(addExpense({ amount: 22000, createdAt: 10008990, description: 'Gas Bill' }));
 store.dispatch(addExpense({ amount: 52000, createdAt: 100000, description: 'Electricity Bill' }));
-store.dispatch(setTextFilter('bill'));
 store.dispatch(setTextFilter('water'));
 
+setTimeout(() => {
+  store.dispatch(setTextFilter('bill'));
+}, 3000);
+
+
 const App = () => (
-  <AppRouter />
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 );
 
 export default App;
